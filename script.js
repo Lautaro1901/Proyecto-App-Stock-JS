@@ -1,91 +1,61 @@
-// VARIABLES DE STOCK DE PRODUCTO
-let producto1 = 5;
-let producto2 = 7;
-let producto3 = 3;
+// FUNCIONES//
+function mostrarProducto(obj_producto){
+    const contenedorProductos = document.getElementById('ListaProductos');
+    const productoNuevo = document.createElement('tr');
+    productoNuevo.innerHTML = 
+    `<th scope="row">${obj_producto.id}</th>
+    <td>${obj_producto.nombre}</td>
+    <td>${obj_producto.desc}</td>
+    <td>${obj_producto.stock}</td>
+    <td>${obj_producto.deposito}</td>`;
+    contenedorProductos.append(productoNuevo);
+}
 
-let opcion;
-while(opcion != "5"){
-    opcion = prompt('Eliga la opcion\n1. Sumar Stock\n2. RestarStock\n3. Mostrar producto\n4. Mostrar todos los productos\n5. Salir');
-    while(opcion < 1 || opcion > 5){
-        alert("Error opcion invalida vuelva a ingresar una opcion");
-        opcion = prompt('Eliga la opcion\n1. Sumar Stock\n2. RestarStock\n3. Mostrar producto\n4. Mostrar todos los productos\n5. Salir');
+// Clases //
+class Producto {
+    constructor (id, nombre, desc, stock, deposito){ 
+        this.id = id;
+        this.nombre = nombre;
+        this.desc = desc;
+        this.stock = stock;
+        this.deposito = deposito;
     }
-    
-    if(opcion >= 1 && opcion <= 3){
-        let producto = prompt('1.Producto1 \n2.Producto2 \n3.Producto3');
-        while(producto < 1 || producto > 3){
-            alert("Error opcion invalida vuelva a ingresar una opcion");
-            producto = prompt('1.Producto1 \n2.Producto2 \n3.Producto3');
+
+    sumarStock(cantidad){
+        this.stock += cantidad
+    }
+    restarStock(cantidad){
+        this.stock -= cantidad
+        if (this.stock < 0){this.stock = 0}
+    }
+}
+
+// Listado Productos 
+class Sistema{
+    constructor(){
+        this.productos = [];
+    }
+    agregarProducto(nombre, desc, stock, deposito){
+        let id = 1 
+        if (this.productos.length > 0){
+            id = this.productos[this.productos.length - 1].id + 1
         }
-        if(opcion == "1" || opcion == "2"){
-            let cantidad = prompt('Ingrese cantidad');
-            actualizacionDeStock(opcion, producto, cantidad);
-        }
-        alert("Cantidad actual del producto: " + obtenerStockProducto(producto));
-    }else if(opcion == "4"){
-        mostrarStockProductos();
+        this.productos.push(new Producto(id, nombre, desc, stock, deposito))
+    }
+    vistaProductos (){
+        this.productos.forEach((prod) => mostrarProducto(prod));
+    }
+    traerProducto(id){
+        return this.productos.find((prod)=>prod.id === id)
     }
 }
 
-function actualizacionDeStock(opcion, productoElegido, cantidad){
-    cantidad = parseInt(cantidad);
-    if (opcion == "1") {    // AÑADIR STOCK
-        switch (productoElegido){
-            case "1":
-                producto1 += cantidad;
-                break;
-    
-            case "2":
-                producto2 += cantidad;
-                break;
-    
-            case "3":
-                producto3 += cantidad;
-                break;
-        }
-    }else{  // RESTAR STOCK
-        switch (productoElegido){
-            case "1":
-                producto1 -= validarRestarStock(producto1, cantidad);
-                break;
-    
-            case "2":
-                producto2 -= validarRestarStock(producto2, cantidad);
-                break;
-    
-            case "3":
-                producto3 -= validarRestarStock(producto3, cantidad);
-                break;
-        }
-    }
-}
+const sistema = new Sistema ()
+sistema.agregarProducto ("Cande", "Mide 1.50", 1,"Nueva Pompeya")
+sistema.agregarProducto ("Candela", "Mide 1.40", 2,"Pitufilandia")
+sistema.agregarProducto ("Kmde", "Mide 1.49", 5,"Casa de Teddy")
+sistema.agregarProducto ("Pablo", "Progamador", 10, "Rafael Calzada")
 
-function validarRestarStock(stock, cantidad){
-    if(stock >= cantidad){
-        return (cantidad);
-    }else{
-        return stock;
-    }
-}
-
-function obtenerStockProducto(productoElegido){
-    switch (productoElegido){
-        case "1":
-            return producto1;
-            break;
-
-        case "2":
-            return producto2;
-            break;
-
-        case "3":
-            return producto3;
-            break;
-    }
-}
-
-function mostrarStockProductos(){
-    alert("Stock Disponible\n Producto 1: " + producto1
-    + "\n Producto 2: " + producto2
-    + "\n Producto 3: " + producto3);
-}
+sistema.traerProducto(1).restarStock(2)
+sistema.agregarProducto (prompt("Ingrese un nombre"), prompt("Ingrese Desc"), prompt("Ingrese stock"),prompt("Ingrese un deposito"))
+sistema.vistaProductos()
