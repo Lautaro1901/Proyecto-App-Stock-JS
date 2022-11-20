@@ -118,11 +118,9 @@ const stockCantidad = document.getElementById('stockCantidad')
 btnSumarStock.onclick = () => {
     sistema.productos [selectActualizarStock.selectedIndex].sumarStock(parseInt(stockCantidad.value))
     sistema.vistaProductos()
-
 }
 
 btnRestarStock.onclick = () => {
     sistema.productos[selectActualizarStock.selectedIndex].restarStock(parseInt(stockCantidad.value))
     sistema.vistaProductos()
-
 }
