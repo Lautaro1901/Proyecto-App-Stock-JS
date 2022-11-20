@@ -1,5 +1,5 @@
 // FUNCIONES//
-const contenedorProductos = document.getElementById('ListaProductos');
+const contenedorProductos = document.getElementById('TablaProductos');
 function mostrarProducto(obj_producto){
     const productoNuevo = document.createElement('tr');
     productoNuevo.innerHTML = 
@@ -12,11 +12,11 @@ function mostrarProducto(obj_producto){
 }
 
 function actualizarSelectProd(){
-    selectElem.innerText = ''
+    selectElementEliminar.innerText = ''
     sistema.productos.forEach(prod=>{
         const opcionProducto = document.createElement('option')
         opcionProducto.innerText = `${prod.nombre}`
-        selectElem.append(opcionProducto)
+        selectElementEliminar.append(opcionProducto)
     })
 }
 
@@ -85,15 +85,44 @@ productosAlmacenados.forEach((p)=>sistema.agregarProducto(p.nombre,p.desc,p.stoc
 sistema.vistaProductos()
 
 // Evento eliminar producto
-const selectElem = document.getElementById('listaProductos')
+const selectElementEliminar = document.getElementById('listaProductos')
 const btnEliminar = document.getElementById('btnBorrar')
 const btnEliminarNav = document.getElementById('btnEliminarNav')
 
 btnEliminarNav.onclick = actualizarSelectProd 
 
 btnEliminar.onclick = ()=>{
-    sistema.productos.splice(selectElem.selectedIndex, 1)
+    sistema.productos.splice(selectElementEliminar.selectedIndex, 1)
     sistema.guardar()
     sistema.vistaProductos()
     actualizarSelectProd ()
+}
+
+//Evento Actualizar Stock 
+const selectActualizarStock = document.getElementById('selectActualizarStock')
+const btnActualizarStock = document.getElementById('btnActualizarStock')
+
+btnActualizarStock.onclick = () => {
+    selectActualizarStock.innerText = ''
+    sistema.productos.forEach(prod=>{
+        const opcionProducto = document.createElement('option')
+        opcionProducto.innerText = `${prod.nombre}`
+        selectActualizarStock.append(opcionProducto)
+    })
+}
+
+const btnSumarStock = document.getElementById('btnSumarStock')
+const btnRestarStock = document.getElementById('btnRestarStock')
+const stockCantidad = document.getElementById('stockCantidad')
+
+btnSumarStock.onclick = () => {
+    sistema.productos [selectActualizarStock.selectedIndex].sumarStock(parseInt(stockCantidad.value))
+    sistema.vistaProductos()
+
+}
+
+btnRestarStock.onclick = () => {
+    sistema.productos[selectActualizarStock.selectedIndex].restarStock(parseInt(stockCantidad.value))
+    sistema.vistaProductos()
+
 }
