@@ -16,35 +16,81 @@
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid justify-content-evenly">
         <a class="navbar-brand" href="#">
-          <img src="https://previews.123rf.com/images/bekkerbekker/bekkerbekker1907/bekkerbekker190700054/127510797-espadach%C3%ADn-en-ataque-con-el-florete-car%C3%A1cter-atl%C3%A9tico-femenino-deporte-deportes-activos-y-estilo-de-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">STOCKada</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-lg-5 me-lg-5">
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"><i class="bi bi-box-seam p-1"></i>STOCK</a></li>
-              <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-clipboard-data p-1"></i>REPORTES</a></li>
-              <li class="nav-item"><a class="nav-link"><i class="bi bi-plus-lg p-1"></i>NUEVO ITEM</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-          </div> 
-        </div>      
+        <img src="https://previews.123rf.com/images/bekkerbekker/bekkerbekker1907/bekkerbekker190700054/127510797-espadach%C3%ADn-en-ataque-con-el-florete-car%C3%A1cter-atl%C3%A9tico-femenino-deporte-deportes-activos-y-estilo-de-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">STOCKada</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-lg-5 me-lg-5">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"><i class="bi bi-box-seam p-1"></i>STOCK</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-clipboard-data p-1"></i>REPORTES</a></li>
+          </ul>
+          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"><i class="bi bi-plus-lg p-1"></i>NUEVO ITEM</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Item</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3">
+                    <div class="col-12">
+                      <label for="nombreProducto" class="form-label">Nombre</label>
+                      <input type="text" id="nombreProducto" class="form-control"  placeholder="Nombre del producto">
+                    </div>
+                    <div class="col-12">
+                      <label for="descProducto" class="form-label">Descripción</label>
+                      <input type="text" id="descProducto" class="form-control"  placeholder="Ingresa una Descripcion">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="depositoProducto" class="form-label">Deposito</label>
+                      <input type="text" id="depositoProducto" class="form-control" placeholder="Ingrese un Deposito">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="stockProducto" class="form-label">Stock</label>
+                      <input type="number" id="stockProducto" class="form-control">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" id="btnAgregar" class="btn btn-primary" >Agregar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="btnEliminarNav" class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#modalBorrar" data-bs-whatever="@fat"><i class="bi bi-x"></i>BORRAR ITEM </button>
+          <div class="modal fade" id="modalBorrar" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar producto de la lista</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <select class="form-select" aria-label="Default select example" id="listaProductos">
+
+                  </select>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="btnBorrar">Borrar Producto</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <button type="button" class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Actualizar Stock</button>
+      </div>      
     </nav>
   </header>
-  
+ 
   <main>
     <section class="container-fluid m-0">
         <div class="inventario d-flex flex-column text-center mt-5 col-12">
           <h1>Lista de Inventario</h1>
         </div>
-
-        <div>
-
-        </div>
-
         <table class="table">
           <thead>
             <tr>
@@ -56,13 +102,6 @@
             </tr>
           </thead>
           <tbody class="table-group-divider" id='ListaProductos'>
-            <!-- <tr>
-              <th scope="row">1</th>
-              <td>Zapatilla</td>
-              <td>Zapatillas choriadas negras</td>
-              <td>12</td>
-              <td>Buenos Aires</td>
-            </tr> -->
           </tbody>
         </table>
     </section>
@@ -71,7 +110,7 @@
   <footer>
 
   </footer>
-
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="./script.js"></script> 
 </body>

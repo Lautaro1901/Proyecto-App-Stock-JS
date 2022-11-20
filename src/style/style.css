@@ -1,3 +1,9 @@
 @import url("./base/_reset.scss");
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map.*/
+
+#stockProducto::-webkit-inner-spin-button,
+#stockProducto::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}

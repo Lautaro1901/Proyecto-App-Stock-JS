@@ -1,6 +1,6 @@
 // FUNCIONES//
+const contenedorProductos = document.getElementById('ListaProductos');
 function mostrarProducto(obj_producto){
-    const contenedorProductos = document.getElementById('ListaProductos');
     const productoNuevo = document.createElement('tr');
     productoNuevo.innerHTML = 
     `<th scope="row">${obj_producto.id}</th>
@@ -9,6 +9,15 @@ function mostrarProducto(obj_producto){
     <td>${obj_producto.stock}</td>
     <td>${obj_producto.deposito}</td>`;
     contenedorProductos.append(productoNuevo);
+}
+
+function actualizarSelectProd(){
+    selectElem.innerText = ''
+    sistema.productos.forEach(prod=>{
+        const opcionProducto = document.createElement('option')
+        opcionProducto.innerText = `${prod.nombre}`
+        selectElem.append(opcionProducto)
+    })
 }
 
 // Clases //
@@ -20,7 +29,6 @@ class Producto {
         this.stock = stock;
         this.deposito = deposito;
     }
-
     sumarStock(cantidad){
         this.stock += cantidad
     }
@@ -42,7 +50,11 @@ class Sistema{
         }
         this.productos.push(new Producto(id, nombre, desc, stock, deposito))
     }
+    guardar(){
+        localStorage.setItem('productos', JSON.stringify(this.productos))
+    }
     vistaProductos (){
+        contenedorProductos.innerHTML = ''
         this.productos.forEach((prod) => mostrarProducto(prod));
     }
     traerProducto(id){
@@ -51,11 +63,37 @@ class Sistema{
 }
 
 const sistema = new Sistema ()
-sistema.agregarProducto ("Cande", "Mide 1.50", 1,"Nueva Pompeya")
-sistema.agregarProducto ("Candela", "Mide 1.40", 2,"Pitufilandia")
-sistema.agregarProducto ("Kmde", "Mide 1.49", 5,"Casa de Teddy")
-sistema.agregarProducto ("Pablo", "Progamador", 10, "Rafael Calzada")
+const btnAgregar = document.getElementById('btnAgregar')
 
-sistema.traerProducto(1).restarStock(2)
-sistema.agregarProducto (prompt("Ingrese un nombre"), prompt("Ingrese Desc"), prompt("Ingrese stock"),prompt("Ingrese un deposito"))
+//Evento agregar Producto 
+    btnAgregar.onclick = () => {
+    const inputNombre = document.getElementById('nombreProducto')
+    const inputDesc = document.getElementById('descProducto')
+    const inputDeposito = document.getElementById('depositoProducto')
+    const inputStock = document.getElementById('stockProducto')
+    
+    sistema.agregarProducto (inputNombre.value, inputDesc.value,parseInt(inputStock.value), inputDeposito.value)
+    
+    inputNombre.value = inputDesc.value = inputStock.value = inputDeposito.value = '' 
+
+    sistema.guardar()
+    sistema.vistaProductos()
+}
+
+const productosAlmacenados = JSON.parse(localStorage.getItem('productos'))
+productosAlmacenados.forEach((p)=>sistema.agregarProducto(p.nombre,p.desc,p.stock,p.deposito))
 sistema.vistaProductos()
+
+// Evento eliminar producto
+const selectElem = document.getElementById('listaProductos')
+const btnEliminar = document.getElementById('btnBorrar')
+const btnEliminarNav = document.getElementById('btnEliminarNav')
+
+btnEliminarNav.onclick = actualizarSelectProd 
+
+btnEliminar.onclick = ()=>{
+    sistema.productos.splice(selectElem.selectedIndex, 1)
+    sistema.guardar()
+    sistema.vistaProductos()
+    actualizarSelectProd ()
+}
