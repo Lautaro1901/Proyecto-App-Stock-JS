@@ -1,5 +1,6 @@
 // FUNCIONES//
 const contenedorProductos = document.getElementById('TablaProductos');
+
 function mostrarProducto(obj_producto){
     const productoNuevo = document.createElement('tr');
     productoNuevo.innerHTML = 
