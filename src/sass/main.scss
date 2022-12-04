@@ -1,2 +1,8 @@
-@import url("./base/_reset.scss");
-
+@import "./utils/variables";
+@import "./utils/mixin";
+@import "./base/_reset.scss";
+@import "./base/tipography";
+@import "./layout/navigation";
+@import "./layout/footer";
+@import "./pages/index";
+;

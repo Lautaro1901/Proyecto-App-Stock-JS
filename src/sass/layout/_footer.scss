@@ -1,0 +1,12 @@
+.footer{
+    &__color{
+        background-color: map-get($colores, "color-terciario" );
+    }
+    &__logo{
+        height: 80px;
+    }
+    &__icon{
+        font-size: 24px;
+        color: map-get($colores, "color-primario" );
+    }
+}

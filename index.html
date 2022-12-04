@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style/style.css">
-    <title>Document</title>
+    <title>STOCKada</title>
 </head>
 
 <body>
@@ -16,13 +17,13 @@
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid justify-content-evenly">
         <a class="navbar-brand" href="#">
-        <img src="https://previews.123rf.com/images/bekkerbekker/bekkerbekker1907/bekkerbekker190700054/127510797-espadach%C3%ADn-en-ataque-con-el-florete-car%C3%A1cter-atl%C3%A9tico-femenino-deporte-deportes-activos-y-estilo-de-.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">STOCKada</a>
+        <img src="./src/images/logo.png" alt="Logo" height="40px" class="d-inline-block align-text-center">STOCKada</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-lg-5 me-lg-5">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"><i class="bi bi-box-seam p-1"></i>STOCK</a></li>
+            <li class="nav-item"><a class="nav-link" aria-current="page" href="#"><i class="bi bi-box-seam p-1"></i>STOCK</a></li>
             <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-clipboard-data p-1"></i>REPORTES</a></li>
           </ul>
           <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#btnAgregarItem" data-bs-whatever="@fat"><i class="bi bi-plus-lg p-1"></i>NUEVO ITEM</button>
@@ -109,13 +110,13 @@
   </header>
 
   <main>
-    <section class="container-fluid m-0">
+    <section class="contendor_Tablas container-fluid m-0">
         <div class="inventario d-flex flex-column text-center mt-5 col-12">
-          <h1>Lista de Inventario</h1>
+          <h1 class="title">Lista de Inventario</h1>
         </div>
-        <table class="table">
+        <table class="table text-center">
           <thead>
-            <tr>
+            <tr class="table__points">
               <th scope="col">#</th>
               <th scope="col">name</th>
               <th scope="col">Desc</th>
@@ -129,9 +130,19 @@
     </section>
   </main>
 
-  <footer>
-
-  </footer>
+  <div class="container-fluid p-0">
+    <footer class="d-flex flex-column flex-lg-row justify-content-between align-items-center border-top p-4 mt-3 footer__color fixed-bottom">
+        <a href="./index.html" class="logo__link"><img src="./src/images/logo.png" alt="logo Lecoin" class="footer__logo"></a>
+            <ul class="navbar-nav d-flex flex-row justify-content-center flex-wrap gap-3 mt-3">
+                <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+            </ul>
+        <ul class="nav justify-content-end list-unstyled d-flex mt-2">
+            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram footer__icon"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter footer__icon"></i></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-whatsapp footer__icon"></i></a></li>
+        </ul>
+    </footer>
+</div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="./script.js"></script> 

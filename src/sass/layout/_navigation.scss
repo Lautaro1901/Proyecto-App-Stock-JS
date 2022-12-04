@@ -1,0 +1,8 @@
+.nav-link{
+    @include texto(1rem,400);
+    color: map-get($colores, "color-primario");
+}
+
+.bg-light{
+background-color: map-get($colores, "color-terciario")!important;
+}

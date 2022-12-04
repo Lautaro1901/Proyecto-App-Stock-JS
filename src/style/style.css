@@ -1,9 +1,50 @@
-@import url("./base/_reset.scss");
-
-/*# sourceMappingURL=style.css.map.*/
-
-#stockProducto::-webkit-inner-spin-button,
-#stockProducto::-webkit-outer-spin-button {
--webkit-appearance: none;
-margin: 0;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
 }
+
+* {
+  font-family: "Karla", sans-serif;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #006989;
+}
+
+.bg-light {
+  background-color: #EAEBED !important;
+}
+
+.footer__color {
+  background-color: #EAEBED;
+}
+.footer__logo {
+  height: 80px;
+}
+.footer__icon {
+  font-size: 24px;
+  color: #006989;
+}
+
+.title {
+  border: 2px solid black;
+  padding: 10px;
+  font-size: 3rem;
+  font-weight: 900;
+  background-color: #A3BAC3;
+}
+
+.contendor_Tablas .container-fluid {
+  border: 2px solid black;
+}
+
+.table__points {
+  background-color: #EAEBED;
+}
+
+/*# sourceMappingURL=style.css.map */
