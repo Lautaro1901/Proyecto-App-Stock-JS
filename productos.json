@@ -1,0 +1,50 @@
+[
+    {
+        "nombre":"Parlante Philco",
+        "desc":"Portatil con bluetooth negro",
+        "stock":50,
+        "deposito":"CABA"
+    },
+    {
+        "nombre":"SSD interno Western Digital",
+        "desc":"350GB",
+        "stock":100,
+        "deposito":"CABA"
+    },
+    {
+        "nombre":"Teclado RedDragon",
+        "desc":"QWERTY Outemu Purple",
+        "stock":13,
+        "deposito":"Ramos Mejia"
+    },
+    {
+        "nombre":"GTX 1060TI",
+        "desc":"Gigabyte OC 6GB",
+        "stock":30,
+        "deposito":"Capital Federal"
+    },
+    {
+        "nombre":"Auriculares Logitech",
+        "desc":"Series G332 black",
+        "stock":500,
+        "deposito":"Monserrat"
+    },
+    {
+        "nombre":"Auriculares Razer",
+        "desc":"Kraken X Lite",
+        "stock":200,
+        "deposito":"Rafael Calzada"
+    },
+    {
+        "nombre":"Auriculares HyperX",
+        "desc":"Cloud Stinger Core",
+        "stock":323,
+        "deposito":"Gerli"
+    },
+    {
+        "nombre":"Auriculares HyperX",
+        "desc":"Cloud Flight",
+        "stock":220,
+        "deposito":"Gerli"
+    }
+]

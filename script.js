@@ -64,6 +64,17 @@ class Sistema{
 }
 
 const sistema = new Sistema ()
+
+// FETCH 
+fetch ('./productos.json')
+.then ((response) => response.json())
+.then ((productos) => {
+    productos.forEach((producto)=> sistema.agregarProducto(producto.nombre, producto.desc, producto.stock, producto.deposito));
+    sistema.vistaProductos()
+}).catch((error) =>{
+    console.log(error);
+})
+
 const btnAgregar = document.getElementById('btnAgregar')
 
 //Evento agregar Producto 
